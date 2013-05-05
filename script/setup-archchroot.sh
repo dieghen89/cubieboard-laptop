@@ -211,7 +211,7 @@ ln -s $CHROOT_DIR/usr/share/zoneinfo/Europe/Rome ${CHROOT_DIR}/etc/localtime
 ExecutExt echo -e "KEYMAP=it" > ${CHROOT_DIR}/etc/vconsole.conf
 
 #
-# Install, configure and run crosstool-ng to build the cross toolchain
+# Install and configure crosstool-ng
 #
 
 # Install crosstool-ng package
@@ -224,3 +224,7 @@ mkdir -p ${CHROOT_DIR}/home/$USERNAME/cross/src
 cp config/crosstool.config ${CHROOT_DIR}/home/$USERNAME/cross
 cp ${CHROOT_DIR}/home/$USERNAME/cross/crosstool.config ${CHROOT_DIR}/home/$USERNAME/cross/.config
 chown -R $USERNAME:users ${CHROOT_DIR}/home/$USERNAME/cross
+
+# Install uboot-mkimage
+ExecuteExt --asuser $USERNAME yaourt -S uboot-mkimage --noconfirm || \
+	die "uboot-mkimage build or install failed"
