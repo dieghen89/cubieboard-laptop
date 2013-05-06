@@ -10,6 +10,6 @@ ctcleancross:
 ctcleanxtools:
 	rm -rf x-tools7h/
 kernelconfig:
-	make -C linux-sunxi-3.4/ ARCH=arm menuconfig
+	make -C linux-sunxi/ ARCH=arm menuconfig
 kernelbuild:
-	make -C linux-sunxi-3.4/ ARCH=arm CROSS_COMPILE=arm-cubieboard-linux-gnueabi- uImage modules
+	make -C linux-sunxi/ ARCH=arm CROSS_COMPILE=arm-cubieboard-linux-gnueabi- uImage modules
