@@ -14,4 +14,4 @@ alias p='sudo pacman'
 #PS1='[\u@\h \W]\$ '
 PS1='\[\e[32;1m\]\u\[\e[37;1m\]@\[\e[31;1m\]\H \[\e[0m\]\W>'
 
-PATH=$HOME/x-tools7h/arm-cubieboard-linux-gnueabi/bin/:/usr/lib/qt4/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/opt/android-sdk/platform-tools:/opt/android-sdk/tools:/opt/java/jre/bin:/usr/bin/core_perl
+PATH=$HOME/x-tools7h/arm-cubieboard-linux-gnueabi/bin/:$PATH
