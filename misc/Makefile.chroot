@@ -1,0 +1,15 @@
+prova:
+	@echo ciao	
+ctconfig:
+	ct-ng -C cross/ menuconfig
+ctbuild:
+	ct-ng -C cross/ build
+ctcleancross:
+	rm -rf cross/
+	mkdir -p $HOME/cross/src
+ctcleanxtools:
+	rm -rf x-tools7h/
+kernelconfig:
+	make -C linux-sunxi-3.4/ ARCH=arm menuconfig
+kernelbuild:
+	make -C linux-sunxi-3.4/ ARCH=arm CROSS_COMPILE=arm-cubieboard-linux-gnueabi- uImage modules
