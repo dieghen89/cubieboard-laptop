@@ -1,5 +1,5 @@
-prova:
-	@echo ciao	
+default:
+		
 ctconfig:
 	ct-ng -C cross/ menuconfig
 ctbuild:
