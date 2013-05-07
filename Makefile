@@ -6,6 +6,9 @@ SHELL := $(shell which bash)
 
 include $(CONF_DIR)/setenv.sh
 
+.PHONY : default chrootenv cleanbootstrap cleanchroot cleanarchroot cleangit
+.PHONY : cleanall in ctclean copyconf git help
+
 default:
 	@ make help
 
@@ -53,9 +56,8 @@ git:
 	@ mkdir -p git/
 	@ # linux-sunxi
 	  git clone git://github.com/linux-sunxi/linux-sunxi.git git/linux-sunxi/
-	@ cd git/linux-sunxi/
-	  git branch sunxi-3.0 --track origin/sunxi-3.0
-	  git branch sunxi-3.4 --track origin/sunxi-3.4
+	@ cd git/linux-sunxi/ ;\
+	    git branch sunxi-3.4 --track origin/sunxi-3.4
 
 help:
 	@ echo -e "Usage: make <target>"
