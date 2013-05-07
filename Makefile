@@ -26,11 +26,6 @@ cleanall:
 	@make cleanchroot
 	@make cleangit
 
-path:
-	# Usage: eval `make path`
-	@# Useful to add the script/ dir in your PATH env
-	@echo PATH=\"$(NEWPATH)\"
-
 in:
 	@sudo $(SHELL) $(SCRIPT_DIR)/in-chroot.sh $(PWD)/$${CHROOT_NAME}
 
