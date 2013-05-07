@@ -13,7 +13,7 @@ default:
 	@ make help
 
 chrootenv:
-	sudo $(SHELL) $(SCRIPT_DIR)/setup-archchroot.sh $${CHROOT_NAME}
+	sudo $(SHELL) $(SCRIPT_DIR)/setup-archchroot.sh ${CHROOT_NAME}
 
 cleanbootstrap:
 	sudo rm -rf arch-bootstrap/
@@ -31,10 +31,10 @@ cleanall:
 	@ make cleangit
 
 in:
-	@sudo $(SHELL) $(SCRIPT_DIR)/in-chroot.sh $(PWD)/$${CHROOT_NAME}
+	@sudo $(SHELL) $(SCRIPT_DIR)/in-chroot.sh $(PWD)/${CHROOT_NAME}
 
 ctclean:
-	sudo rm -rf $${CHROOT_NAME}/home/*/x-tools7h/
+	sudo rm -rf ${CHROOT_NAME}/home/*/x-tools7h/
 
 copyconf:
 	@ # This target will copy all configuration (crosstool, bashrc, makepkg.conf) inside chroot
