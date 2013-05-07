@@ -7,17 +7,24 @@ SHELL := $(shell which bash)
 include $(CONF_DIR)/setenv.sh
 
 default:
-
+	@make help
 chrootenv:
 	sudo $(SHELL) $(SCRIPT_DIR)/setup-archchroot.sh $${CHROOT_NAME}
 
-clean:
+cleanbootstrap:
 	sudo rm -rf arch-bootstrap/
 	rm -rf arch-bootstrap.sh
 
-totalclean:
-	make clean
+cleanchroot:
 	sudo rm -rf chroot4cubie/
+
+cleangit:
+	sudo rm -rf git/
+
+cleanall:
+	@make cleanbootstrap
+	@make cleanchroot
+	@make cleangit
 
 path:
 	# Usage: eval `make path`
@@ -50,3 +57,21 @@ git:
 	@mkdir -p git/
 	@# linux-sunxi 
 	git clone git://github.com/linux-sunxi/linux-sunxi.git git/linux-sunxi/
+
+help:
+	@ echo -e "Usage: make <target>"
+	@ echo -e ""
+	@ echo -e "Cleaning targets:"
+	@	echo -e "\t cleanbootstrap  - Remove the arch-bootstrap script and its cache directory"
+	@ echo -e "\t cleangit \t - Remove all the git downloaded git trees"
+	@	echo -e "\t cleanchroot \t - Remove the whole chroot environment"
+	@ echo -e "\t ctclean \t - Remove the built toolchain inside the chroot (x-tools7h dir)"
+	@ echo -e "\t cleanall\t - Remove all the generated files/directory"
+	@ echo -e ""
+	@ echo -e "Generating targets:"
+	@ echo -e "\t chrootenv \t - Create the chroot environment"
+	@ echo -e "\t git \t\t - Download all the the needed git trees"
+	@ echo -e "\t copyconf \t - Copy all the configurations file in the /home of your user inside the chroot"
+	@ echo -e ""
+	@ echo -e "Management targets:"
+	@ echo -e "\t in \t\t - Enter into the chroot environment"
