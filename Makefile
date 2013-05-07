@@ -45,3 +45,8 @@ copyconf:
 			sudo chown -R $(USERNAME):users ${CHROOT_NAME}/home/$(USERNAME)/cross ;\
 			sudo chown -R $(USERNAME):users ${CHROOT_NAME}/home/$(USERNAME)/x-tools7h ;\
 		fi;
+
+git:
+	@mkdir -p git/
+	@# linux-sunxi 
+	git clone git://github.com/linux-sunxi/linux-sunxi.git git/linux-sunxi/
