@@ -136,8 +136,8 @@ else
 	ARCH=${MASTER_ARCH}
 fi
 
-# All binary used in this script
-CheckBinary wget sed xz tar chroot
+# All binary used in this script and useful in the near future
+CheckBinary wget sed xz tar chroot git
 
 # Check if internet connection is available
 CheckNetwork
