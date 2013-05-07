@@ -49,9 +49,12 @@ copyconf:
 		fi;
 
 git:
-	@mkdir -p git/
-	@# linux-sunxi 
-	git clone git://github.com/linux-sunxi/linux-sunxi.git git/linux-sunxi/
+	@ mkdir -p git/
+	@ # linux-sunxi
+	  git clone git://github.com/linux-sunxi/linux-sunxi.git git/linux-sunxi/
+	@ cd git/linux-sunxi/
+	  git branch sunxi-3.0 --track origin/sunxi-3.0
+	  git branch sunxi-3.4 --track origin/sunxi-3.4
 
 help:
 	@ echo -e "Usage: make <target>"
