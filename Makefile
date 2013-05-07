@@ -7,7 +7,8 @@ SHELL := $(shell which bash)
 include $(CONF_DIR)/setenv.sh
 
 default:
-	@make help
+	@ make help
+
 chrootenv:
 	sudo $(SHELL) $(SCRIPT_DIR)/setup-archchroot.sh $${CHROOT_NAME}
 
@@ -22,9 +23,9 @@ cleangit:
 	sudo rm -rf git/
 
 cleanall:
-	@make cleanbootstrap
-	@make cleanchroot
-	@make cleangit
+	@ make cleanbootstrap
+	@ make cleanchroot
+	@ make cleangit
 
 in:
 	@sudo $(SHELL) $(SCRIPT_DIR)/in-chroot.sh $(PWD)/$${CHROOT_NAME}
